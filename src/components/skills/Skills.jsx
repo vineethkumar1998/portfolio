@@ -24,7 +24,7 @@ const Skills = () => {
     { id: 8, name: "Git", image: gitIcon },
   ];
 
-  const skillRefs = useRef(Array(skills.length).fill(null)); // Initialize ref array
+  const skillRefs = useRef([]);
 
   useEffect(() => {
     gsap.set(skillRefs.current, { opacity: 0 }); // Set initial opacity to 0
@@ -44,7 +44,7 @@ const Skills = () => {
         {
           y: 0, // Move to original position
           opacity: 1, // Fade in to full opacity
-          duration: 1, // Animation duration
+          duration: 0.8, // Animation duration
           ease: 'power3.out', // Smooth ease-out for animation
         },
         0.8 // Ensure all animations start at the same time
@@ -61,12 +61,12 @@ const Skills = () => {
       <div className='max-w-3xl mx-auto'>
         <h2 className='text-3xl font-bold mb-4'>Skills</h2>
         <div className='grid grid-cols-3 gap-4 md:grid-cols-4 sm:grid-cols-10'>
-          {skills.map((skill) => (
+          {skills.map((skill, index) => (
             <Skill
               key={skill.id}
               name={skill.name}
               image={skill.image}
-              ref={(el) => (skillRefs.current[skill.id] = el)} // Assign ref to Skill component
+              ref={el => (skillRefs.current[index] = el)} // Assign ref to Skill component
             />
           ))}
         </div>

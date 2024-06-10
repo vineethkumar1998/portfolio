@@ -32,7 +32,7 @@ const Navbar = () => {
             <div className="w-full flex justify-between items-center p-4 md:pl-16 md:pr-16">
                 <Link to="/" className="text-amber-500 text-xl md:text-2xl font-semibold flex gap-3"><SiWebpack  className='size-8 text-purple-600'/>VINEETH</Link>
                 <nav className="hidden md:flex space-x-4">
-                    <ul className="flex space-x-8 text-xl">
+                    <ul className="flex space-x-8 ">
                         {menuItems.map(item => (
                             <li key={item.id}>
                                 <Link
